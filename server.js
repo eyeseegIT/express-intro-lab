@@ -14,6 +14,10 @@ app.get("/home", function(req, res) {
   res.render("home")
 })
 
+app.get('/', function (req, res) { //Listen for get requests on the base route: localhost:3000
+  res.redirect('./fedholidays')
+})
+
 app.get("/fedholidays", function (req, res) {
   fedholidayDb.find({}, function(error, fedHolidays) {
     res.render("holidays/index", {
